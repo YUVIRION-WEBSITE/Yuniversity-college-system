@@ -322,65 +322,8 @@
         </div>
     </section>
 
-
-    {{-- testimonials --}}
- <section class="py-5" style="background: linear-gradient(to bottom, var(--background-light), transparent);">
-        <div class="container" style="max-width: 1536px;">
-            <h2 class="fs-3 fs-sm-2 fw-bold text-primary text-center mb-4 animate-slide-in">Testimonials</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                @forelse ($testimonials as $testimonial)
-                    <div class="col">
-                        <div class="card h-100 border-0 shadow-sm p-3 animate-slide-in" style="transition: all 0.3s ease;">
-                            <div class="d-flex align-items-center gap-2">
-                                <img alt="{{ $testimonial->name }}" class="rounded-circle object-fit-cover" style="width: 40px; height: 40px;" src="{{ $testimonial->photo_path ?: 'https://via.placeholder.com/40' }}" loading="lazy">
-                                <div>
-                                    <p class="fs-6 fw-semibold text-primary">{{ $testimonial->name }}</p>
-                                    <p class="fs-7 text-secondary">{{ $testimonial->date->format('M d, Y') }}</p>
-                                </div>
-                            </div>
-                            <div class="mt-2 d-flex" style="color: var(--accent);">
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <svg class="me-1" style="width: 16px; height: 16px;" fill="{{ $i <= $testimonial->rating ? 'currentColor' : 'none' }}" stroke="currentColor" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                @endfor
-                            </div>
-                            <p class="mt-2 fs-7 text-dark text-truncate" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ $testimonial->comment }}</p>
-                        </div>
-                    </div>
-                @empty
-                    <p class="text-center fs-6 text-dark">No testimonials available yet.</p>
-                @endforelse
-            </div>
-        </div>
-    </section>
-
-      {{-- map section and css --}}
-    <style>
-        .map-container {
-        width: 100%; /* Or a specific width */
-        height: 500px; /* Or a specific height */
-        overflow: hidden; /* To prevent scrollbars if content overflows */
-        }
-
-        .map-container iframe {
-        width: 100%;
-        height: 100%;
-        }
-    </style>
-    <section class="p-4 container">
-        <div class="map-container">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.6789!2d-74.0060!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjEiTiA3NMKwMDAnMzYuMCJF!5e0!3m2!1sen!2sus!4v1678901234567!5m2!1sen!2sus"
-            width="600"
-            height="450"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-        </div>
-    </section>
+    @include('public.homeSections.testimonials');
+    
 
 
 
