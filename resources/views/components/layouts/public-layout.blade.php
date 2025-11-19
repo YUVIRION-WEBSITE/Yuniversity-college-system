@@ -10,251 +10,18 @@
     <title>@yield('title', 'EduConnect - Your Academic Journey Starts Here')</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="/favicon.ico">
     @yield('head')
-    <style>
-        :root {
-            --primary: #c71585; /* Magenta */
-            --secondary: #1e1b4b; /* Navy Blue */
-            --accent: #e6e6fa; /* Light lavender */
-            --background-light: #f9f9f9;
-            --background-dark: #1e1b4b;
-            --text-light: #2d2d2d;
-            --text-dark: #e0e0e0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--background-light);
-            color: var(--text-light);
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        body.dark {
-            background-color: var(--background-dark);
-            color: var(--text-dark);
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: #fff;
-            border-bottom: 1px solid #e0e0e0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .dark header {
-            background-color: var(--background-dark);
-            border-bottom: 1px solid #4b4b4b;
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-brand:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-svg {
-            width: 40px;
-            height: 40px;
-            fill: var(--primary);
-        }
-
-        .search-container {
-            position: relative;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 8px 40px 8px 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .search-container input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(199, 21, 133, 0.2);
-        }
-
-        .search-container button {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #666;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .search-container button:hover {
-            color: var(--primary);
-        }
-
-        .nav-link {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-light);
-            transition: color 0.3s ease;
-        }
-
-        .dark .nav-link {
-            color: var(--text-dark);
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-        }
-
-        .btn-apply {
-            background-color: var(--primary);
-            color: #fff;
-            border-radius: 8px;
-            padding: 8px 16px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .btn-apply:hover {
-            background-color: var(--secondary);
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        footer {
-            background-color: var(--secondary);
-            color: var(--text-dark);
-            padding: 40px 0;
-        }
-
-        footer h3 {
-            color: #fff;
-            font-size: 18px;
-            margin-bottom: 16px;
-        }
-
-        footer a {
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: var(--primary);
-        }
-
-        .newsletter-form input {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #4b4b4b;
-            border-radius: 8px;
-            background-color: #2d2d5d;
-            color: var(--text-dark);
-            font-size: 14px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(199, 21, 133, 0.2);
-        }
-
-        .newsletter-form button {
-            background-color: var(--primary);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 8px 16px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .newsletter-form button:hover {
-            background-color: var(--secondary);
-            transform: scale(1.05);
-        }
-
-        .social-icons a {
-            display: inline-block;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            transform: scale(1.1);
-            color: var(--primary);
-        }
-
-        @keyframes slide-in {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-slide-in {
-            animation: slide-in 0.6s ease-out forwards;
-        }
-
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-
-        @keyframes blink-apply {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.85; }
-        }
-
-        .blink-apply {
-            animation: blink-apply 2s ease-in-out infinite;
-        }
-
-        img, svg {
-            max-width: 100%;
-            height: auto;
-        }
-
-        @media (max-width: 767px) {
-            .navbar-nav {
-                background-color: #fff;
-                border-top: 1px solid #e0e0e0;
-                padding: 16px;
-                gap: 8px;
-            }
-
-            .dark .navbar-nav {
-                background-color: var(--background-dark);
-                border-top: 1px solid #4b4b4b;
-            }
-
-            .navbar-nav .nav-link, .navbar-nav .btn-apply {
-                padding: 8px 0;
-            }
-
-            .search-container {
-                margin-bottom: 16px;
-            }
-        }
-    </style>
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet"> 
+    @stack('styles')
 </head>
+
+    
 <body>
     <div class="d-flex flex-column min-vh-100">
         <!-- Header -->
@@ -343,8 +110,16 @@
                     <p class="fs-6">&copy; {{ date('Y') }} EduConnect. All rights reserved.</p>
                 </div>
             </div>
+
+
         </footer>
     </div>
+
+     @stack('scripts')
+        <!-- JQUERY JS -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <!-- SLICK SLIDER JS -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

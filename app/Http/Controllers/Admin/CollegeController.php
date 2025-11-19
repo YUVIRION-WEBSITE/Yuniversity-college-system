@@ -17,7 +17,7 @@ class CollegeController extends Controller
         $colleges = College::paginate(10);
         return view('admin.colleges.index', compact('colleges'));
     }
-     public function show(College $college)
+    public function show(College $college)
     {
         $courses = $college->courses()->paginate(5); // Paginate 5 courses per page
         return view('admin.colleges.show', compact('college', 'courses'));
@@ -39,7 +39,7 @@ class CollegeController extends Controller
         return redirect()->route('admin.colleges.index')->with('success', 'College created successfully.');
     }
 
-  
+
 
     public function edit(College $college)
     {

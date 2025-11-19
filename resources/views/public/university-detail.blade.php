@@ -125,7 +125,7 @@
         .animate-slide-in {
             animation: slide-in 0.6s ease-out forwards;
         }
-    </style>
+    </style> 
 @endsection
 
 @section('content')

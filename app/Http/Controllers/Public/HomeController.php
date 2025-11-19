@@ -32,9 +32,9 @@ class HomeController extends Controller
 
         return view('public.home', [
             'sliders'      => $sliders,
-            'universities' => University::take(4)->get(),
-            'colleges'     => College::take(4)->get(),
-            'courses'      => Course::take(4)->get(),
+            'universities' => University::take(3)->get(),
+            'colleges'     => College::take(3)->get(),
+            'courses'      => Course::take(3)->get(),
             'testimonials' => Testimonial::take(5)->get(),
         ]);
     }
